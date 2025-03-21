@@ -16,4 +16,4 @@ jobs:
         run: gcloud auth list
 
       - name: Verify GCS Access
-        run: gsutil ls gs://static.saoladigital.com/next-static
+        run: gsutil ls gs://static.saoladigital.com/en-vocab-fe
