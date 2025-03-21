@@ -1,6 +1,8 @@
 import VocabApp from './components/vocabApp';
 
-const API_BASE_URL = `${process.env.API_BASE_URL || 'localhost:3005'}/api/v1`;
+const API_BASE_URL = `${
+  process.env.API_BASE_URL || 'http://localhost:3005'
+}/api/v1`;
 console.log(`API_BASE_URL: ${API_BASE_URL}`);
 
 async function fetchCategories() {

@@ -39,7 +39,7 @@ jobs:
 
       - name: Set Docker build and Artifact Registry variables
         run: |
-          echo "ARTIFACT_IMAGE_PATH=${{ secrets.GCP_REGION }}-docker.pkg.dev/${{secrets.GCP_PROJECT_ID}}/${{secrets.GCP_ARTIFACT_REPO}}/en-vocab-client" >> $GITHUB_ENV
+          echo "ARTIFACT_IMAGE_PATH=${{ secrets.GCP_REGION }}-docker.pkg.dev/${{secrets.GCP_PROJECT_ID}}/${{secrets.GCP_ARTIFACT_REPO}}/en-vocab-client-2" >> $GITHUB_ENV
           # echo "ARTIFACT_IMAGE_TAG"=${{ github.ref_name }} >> $GITHUB_ENV
           # echo "PAT=${{secrets.PAT}}" >> $GITHUB_ENV
 
@@ -52,5 +52,5 @@ jobs:
 
       - name: Push Docker image to Artifact Registry
         run: |
-          DOCKER_BUILD_TAG=$ARTIFACT_IMAGE_PATH:v1.0.9
+          DOCKER_BUILD_TAG=$ARTIFACT_IMAGE_PATH:v1.0.1
           docker push $DOCKER_BUILD_TAG
