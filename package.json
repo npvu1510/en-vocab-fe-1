@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "upload": "gsutil -m rsync -r .next/static gs://static.saoladigital.com/en-vocab-fe-2/_next/static",
+    "upload": "gsutil -m rsync -r .next/static gs://static.saoladigital.com/en-vocab-fe-3/_next/static",
     "lint": "next lint"
   },
   "dependencies": {
