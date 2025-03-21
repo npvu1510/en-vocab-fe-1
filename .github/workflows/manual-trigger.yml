@@ -7,15 +7,16 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Authenticate with GCS
+      - name: Set up Google Cloud SDK
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.GCS_SA_KEY }}
+
+      - name: Install gsutil
         run: |
-          echo '${{ secrets.GCS_SA_KEY }}' | base64 --decode > /tmp/gcloud-key.json
+          sudo apt-get install -y google-cloud-sdk
 
-      - name: Activate service account
-        run: gcloud auth activate-service-account --key-file=/tmp/gcloud-key.json
-
-      - name: Verify authentication
-        run: gcloud auth list
-
-      - name: Test GCS access
-        run: gsutil ls gs://static.saoladigital.com/
+      # - name: Test GCS access
+      #   run: gsutil ls gs://static.saoladigital.com/
+      - name: Verify GCS Access
+        run: gsutil ls
