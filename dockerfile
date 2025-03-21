@@ -21,7 +21,7 @@ COPY package.json package-lock.json ./
 COPY public ./ 
 
 RUN npm install --omit=dev
-RUN rm -rf .next/static
+# RUN rm -rf .next/static
 
 EXPOSE 3000
 CMD ["npm", "start"]
