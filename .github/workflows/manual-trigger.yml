@@ -24,4 +24,4 @@ jobs:
       # - name: Test GCS access
       #   run: gsutil ls gs://static.saoladigital.com/
       - name: Verify GCS Access
-        run: gsutil ls
+        run: gsutil ls gs://static.saoladigital.com/next-static
