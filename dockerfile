@@ -1,28 +1,27 @@
-FROM node:latest AS builder
+# FROM node:latest AS builder
 
-WORKDIR /build
+# WORKDIR /build
 
-COPY package.json package-lock.json ./
+# COPY package.json package-lock.json ./
 
-RUN npm install
+# RUN npm install
 
-COPY . .
+# COPY . .
 
 
-RUN npm run build
+# RUN npm run build
 
 
 FROM node:23-alpine3.20
 
 WORKDIR /app
 
-COPY --from=builder /build/package.json .
-COPY --from=builder /build/package-lock.json .
-COPY --from=builder /build/.next .next
-COPY --from=builder /build/public public
+COPY .next .next
+COPY package.json package-lock.json ./
+COPY public ./ 
 
 RUN npm install --omit=dev
+RUN rm -rf .next/static
 
 EXPOSE 3000
-
 CMD ["npm", "start"]
