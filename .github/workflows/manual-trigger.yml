@@ -45,12 +45,12 @@ jobs:
 
       - name: Build Docker image
         run: |
-          DOCKER_BUILD_TAG=$ARTIFACT_IMAGE_PATH:v1.0.9
+          DOCKER_BUILD_TAG=$ARTIFACT_IMAGE_PATH:v1.0.2
           docker build --secret id=github_pat,env=GITHUB_PAT -t $DOCKER_BUILD_TAG .
         env:
           GITHUB_PAT: ${{ secrets.PAT }}
 
       - name: Push Docker image to Artifact Registry
         run: |
-          DOCKER_BUILD_TAG=$ARTIFACT_IMAGE_PATH:v1.0.1
+          DOCKER_BUILD_TAG=$ARTIFACT_IMAGE_PATH:v1.0.2
           docker push $DOCKER_BUILD_TAG
